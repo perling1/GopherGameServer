@@ -4,8 +4,8 @@ package actions
 import (
 	"errors"
 	"github.com/gorilla/websocket"
-	"./core"
-	"./helpers"
+	"github.com/perling1/GopherGameServer/core"
+	"github.com/perling1/GopherGameServer/helpers"
 )
 
 // CustomClientAction is an action that you can handle on the server from

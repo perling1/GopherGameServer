@@ -20,7 +20,7 @@
 package core
 
 import (
-	"./helpers"
+	"github.com/perling1/GopherGameServer/helpers"
 )
 
 var (

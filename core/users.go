@@ -3,8 +3,8 @@ package core
 import (
 	"errors"
 	"github.com/gorilla/websocket"
-	"./database"
-	"./helpers"
+	"github.com/perling1/GopherGameServer/database"
+	"github.com/perling1/GopherGameServer/helpers"
 	"sync"
 )
 

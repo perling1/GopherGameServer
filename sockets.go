@@ -2,8 +2,8 @@ package gopher
 
 import (
 	"github.com/gorilla/websocket"
-	"./core"
-	"./helpers"
+	"github.com/perling1/GopherGameServer/core"
+	"github.com/perling1/GopherGameServer/helpers"
 	"net/http"
 	"strconv"
 	"sync"

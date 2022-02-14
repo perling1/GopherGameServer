@@ -3,7 +3,7 @@ package gopher
 import (
 	"bufio"
 	"fmt"
-	"./core"
+	"github.com/perling1/GopherGameServer/core"
 	"os"
 	"strconv"
 	"strings"

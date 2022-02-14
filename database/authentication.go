@@ -2,7 +2,7 @@ package database
 
 import (
 	"errors"
-	"./helpers"
+	"github.com/perling1/GopherGameServer/helpers"
 	"strconv"
 )
 

@@ -2,8 +2,8 @@ package gopher
 
 import (
 	"errors"
-	"./core"
-	"./database"
+	"github.com/perling1/GopherGameServer/core"
+	"github.com/perling1/GopherGameServer/database"
 	"net/http"
 )
 

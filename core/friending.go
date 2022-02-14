@@ -2,8 +2,8 @@ package core
 
 import (
 	"errors"
-	"./database"
-	"./helpers"
+	"github.com/perling1/GopherGameServer/database"
+	"github.com/perling1/GopherGameServer/helpers"
 )
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
