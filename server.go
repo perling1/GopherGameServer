@@ -8,15 +8,17 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/hewiefreeman/GopherGameServer/actions"
-	"github.com/hewiefreeman/GopherGameServer/core"
-	"github.com/hewiefreeman/GopherGameServer/database"
+	"./actions"
+	"./core"
+	"./database"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"strconv"
 	"time"
 )
+
+//github.com/hewiefreeman/GopherGameServer
 
 /////////// TO DOs:
 ///////////    - Make authentication for GopherDB

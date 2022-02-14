@@ -3,7 +3,7 @@ package core
 import (
 	"errors"
 	"github.com/gorilla/websocket"
-	"github.com/hewiefreeman/GopherGameServer/helpers"
+	"./helpers"
 )
 
 // These represent the types of room messages the server sends.

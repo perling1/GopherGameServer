@@ -2,7 +2,7 @@ package database
 
 import (
 	"errors"
-	"github.com/hewiefreeman/GopherGameServer/helpers"
+	"./helpers"
 	"strconv"
 )
 

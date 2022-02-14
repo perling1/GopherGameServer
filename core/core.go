@@ -20,7 +20,7 @@
 package core
 
 import (
-	"github.com/hewiefreeman/GopherGameServer/helpers"
+	"./helpers"
 )
 
 var (

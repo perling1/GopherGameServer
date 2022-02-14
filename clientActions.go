@@ -2,10 +2,10 @@ package gopher
 
 import (
 	"github.com/gorilla/websocket"
-	"github.com/hewiefreeman/GopherGameServer/actions"
-	"github.com/hewiefreeman/GopherGameServer/core"
-	"github.com/hewiefreeman/GopherGameServer/database"
-	"github.com/hewiefreeman/GopherGameServer/helpers"
+	"./actions"
+	"./core"
+	"./database"
+	"./helpers"
 	"sync"
 )
 

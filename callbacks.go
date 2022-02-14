@@ -2,8 +2,8 @@ package gopher
 
 import (
 	"errors"
-	"github.com/hewiefreeman/GopherGameServer/core"
-	"github.com/hewiefreeman/GopherGameServer/database"
+	"./core"
+	"./database"
 	"net/http"
 )
 
@@ -249,3 +249,4 @@ func SetPasswordChangeCallback(cb interface{}) error {
 	}
 	return errors.New(ErrorIncorrectFunction)
 }
+

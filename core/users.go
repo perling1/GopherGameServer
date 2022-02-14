@@ -3,8 +3,8 @@ package core
 import (
 	"errors"
 	"github.com/gorilla/websocket"
-	"github.com/hewiefreeman/GopherGameServer/database"
-	"github.com/hewiefreeman/GopherGameServer/helpers"
+	"./database"
+	"./helpers"
 	"sync"
 )
 

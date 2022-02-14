@@ -2,8 +2,8 @@ package core
 
 import (
 	"errors"
-	"github.com/hewiefreeman/GopherGameServer/database"
-	"github.com/hewiefreeman/GopherGameServer/helpers"
+	"./database"
+	"./helpers"
 )
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
