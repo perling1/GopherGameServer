@@ -466,3 +466,45 @@ func recoverState() {
 	//
 	fmt.Println("State recovery successful")
 }
+
+func UpdateServerSettings(s *ServerSettings) {
+fmt.Println("Using to default settings...")
+		settings = &ServerSettings{
+			ServerName:     "!server!",
+			MaxConnections: 0,
+
+			HostName:  "localhost",
+			HostAlias: "localhost",
+			IP:        "localhost",
+			Port:      8080,
+
+			TLS:         false,
+			CertFile:    "",
+			PrivKeyFile: "",
+
+			OriginOnly: false,
+
+			MultiConnect:   false,
+			KickDupOnLogin: false,
+
+			UserRoomControl:   true,
+			RoomDeleteOnLeave: true,
+
+			EnableSqlFeatures: false,
+			SqlIP:             "localhost",
+			SqlPort:           3306,
+			SqlProtocol:       "tcp",
+			SqlUser:           "user",
+			SqlPassword:       "password",
+			SqlDatabase:       "database",
+			EncryptionCost:    4,
+			CustomLoginColumn: "",
+			RememberMe:        false,
+
+			EnableRecovery:   false,
+			RecoveryLocation: "C:/",
+
+			AdminLogin:    "admin",
+			AdminPassword: "password",
+		}
+	}
