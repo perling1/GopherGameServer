@@ -507,6 +507,6 @@ fmt.Println("Using to default settings...")
 			RecoveryLocation: "C:/",
 
 			AdminLogin:    "admin",
-			AdminPassword: "password"}
+			AdminPassword: "password"
+		}
 	}
-}
