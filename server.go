@@ -469,7 +469,7 @@ func recoverState() {
 	fmt.Println("State recovery successful")
 }
 
-func UpdateServerSettings(s *ServerSettings)
+func UpdateServerSettings(s *ServerSettings) {
 fmt.Println("Using to default settings...")
 		settings = &ServerSettings{
 			ServerName:     "!server!",
