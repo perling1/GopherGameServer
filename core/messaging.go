@@ -2,6 +2,8 @@ package core
 
 import (
 	"errors"
+	"strings"
+	"html"
 	"github.com/gorilla/websocket"
 	"github.com/perling1/GopherGameServer/helpers"
 )
@@ -181,7 +183,17 @@ func (r *Room) sendMessage(mt int, st int, rec []string, a string, m interface{}
 		message[helpers.ServerActionRoomMessage]["a"] = a
 	}
 	// The message
-	message[helpers.ServerActionRoomMessage]["m"] = m
+	
+	outputstr := strings.Replace(m, "<", "&lt;", -1)
+	outputstr = strings.Replace(outputstr, ">", "&gt;", -1)
+	outputstr = strings.Replace(outputstr, ";", "", -1)
+	outputstr = strings.Replace(outputstr, "`", "", -1)
+	outputstr = strings.Replace(outputstr, "´", "", -1)
+	outputstr = strings.Replace(outputstr, "{", "", -1)
+	outputstr = strings.Replace(outputstr, "}", "", -1)
+	outputstr = html.EscapeString(outputstr)
+
+	message[helpers.ServerActionRoomMessage]["m"] = outstr
 
 	//SEND MESSAGE TO USERS
 	if rec == nil || len(rec) == 0 {
