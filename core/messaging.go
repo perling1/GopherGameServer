@@ -2,6 +2,7 @@ package core
 
 import (
 	"errors"
+	"strings"
 	"fmt"
 	"bytes"
 	"io"
