@@ -4,7 +4,9 @@ import (
 	"errors"
 	"strings"
 	"fmt"
+	"bytes"
 	"html"
+	"io"
 	"github.com/gorilla/websocket"
 	"github.com/perling1/GopherGameServer/helpers"
 )
@@ -30,6 +32,49 @@ var (
 	serverMessageCallback     func(*Room, int, interface{})
 	serverMessageCallbackSet  bool
 )
+
+var (
+	htmlQuot = []byte("&#34;") // shorter than "&quot;"
+	htmlApos = []byte("&#39;") // shorter than "&apos;" and apos was not in HTML until HTML5
+	htmlAmp  = []byte("&amp;")
+	htmlLt   = []byte("&lt;")
+	htmlGt   = []byte("&gt;")
+)
+
+// HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.
+func HTMLEscape(w io.Writer, b []byte) {
+	last := 0
+	for i, c := range b {
+		var html []byte
+		switch c {
+		case '"':
+			html = htmlQuot
+		case '\'':
+			html = htmlApos
+		case '&':
+			html = htmlAmp
+		case '<':
+			html = htmlLt
+		case '>':
+			html = htmlGt
+		default:
+			continue
+		}
+		w.Write(b[last:i])
+		w.Write(html)
+		last = i + 1
+	}
+	w.Write(b[last:])
+}
+func HTMLEscapeString(s string) string {
+	// Avoid allocation if we can.
+	if !strings.ContainsAny(s, `'"&<>`) {
+		return s
+	}
+	var b bytes.Buffer
+	HTMLEscape(&b, []byte(s))
+	return b.String()
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //   Messaging Users   ///////////////////////////////////////////////////////////////////////////////
@@ -187,7 +232,6 @@ func (r *Room) sendMessage(mt int, st int, rec []string, a string, m interface{}
 	outputstr := fmt.Sprintf("%v", m)
 	outputstr = strings.Replace(outputstr, ";", "", -1)
 	outputstr = strings.Replace(outputstr, "`", "&#96;", -1)
-	outputstr = strings.Replace(outputstr, "´", "", -1)
 	outputstr = strings.Replace(outputstr, "'", "&lsquo;", -1)
 	outputstr = strings.Replace(outputstr, "/", "&sol;", -1)
 	HTMLEscapeString(outputstr) 
