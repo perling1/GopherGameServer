@@ -183,17 +183,16 @@ func (r *Room) sendMessage(mt int, st int, rec []string, a string, m interface{}
 		message[helpers.ServerActionRoomMessage]["a"] = a
 	}
 	// The message
-	
-	outputstr := strings.Replace(m.m, "<", "&lt;", -1)
+	outputstr = fmt.Sprintf("%v", m)
+	outputstr = strings.Replace(outputstr, "<", "&lt;", -1)
 	outputstr = strings.Replace(outputstr, ">", "&gt;", -1)
 	outputstr = strings.Replace(outputstr, ";", "", -1)
 	outputstr = strings.Replace(outputstr, "`", "", -1)
 	outputstr = strings.Replace(outputstr, "´", "", -1)
 	outputstr = strings.Replace(outputstr, "{", "", -1)
 	outputstr = strings.Replace(outputstr, "}", "", -1)
-	outputstr = html.EscapeString(outputstr)
 
-	message[helpers.ServerActionRoomMessage]["m"] = outstr
+	message[helpers.ServerActionRoomMessage]["m"] = outputstr
 
 	//SEND MESSAGE TO USERS
 	if rec == nil || len(rec) == 0 {
