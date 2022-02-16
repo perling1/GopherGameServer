@@ -233,7 +233,7 @@ func (r *Room) sendMessage(mt int, st int, rec []string, a string, m interface{}
 	outputstr = strings.Replace(outputstr, "`", "&#96;", -1)
 	outputstr = strings.Replace(outputstr, "'", "&lsquo;", -1)
 	outputstr = strings.Replace(outputstr, "/", "&sol;", -1)
-	HTMLEscapeString(outputstr) 
+	outputstr = HTMLEscapeString(outputstr) 
 
 	message[helpers.ServerActionRoomMessage]["m"] = outputstr
 
