@@ -3,7 +3,6 @@ package core
 import (
 	"errors"
 	"strings"
-	"html"
 	"github.com/gorilla/websocket"
 	"github.com/perling1/GopherGameServer/helpers"
 )
