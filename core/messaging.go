@@ -5,7 +5,6 @@ import (
 	"strings"
 	"fmt"
 	"bytes"
-	"html"
 	"io"
 	"github.com/gorilla/websocket"
 	"github.com/perling1/GopherGameServer/helpers"
