@@ -184,7 +184,7 @@ func (r *Room) sendMessage(mt int, st int, rec []string, a string, m interface{}
 	}
 	// The message
 	
-	outputstr := strings.Replace(m, "<", "&lt;", -1)
+	outputstr := strings.Replace(m.m, "<", "&lt;", -1)
 	outputstr = strings.Replace(outputstr, ">", "&gt;", -1)
 	outputstr = strings.Replace(outputstr, ";", "", -1)
 	outputstr = strings.Replace(outputstr, "`", "", -1)
