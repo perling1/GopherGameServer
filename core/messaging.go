@@ -2,7 +2,6 @@ package core
 
 import (
 	"errors"
-	"strings"
 	"fmt"
 	"bytes"
 	"io"
@@ -32,12 +31,14 @@ var (
 	serverMessageCallbackSet  bool
 )
 
+// HTMLEscape Types
 var (
 	htmlQuot = []byte("&#34;") // shorter than "&quot;"
 	htmlApos = []byte("&#39;") // shorter than "&apos;" and apos was not in HTML until HTML5
 	htmlAmp  = []byte("&amp;")
 	htmlLt   = []byte("&lt;")
 	htmlGt   = []byte("&gt;")
+	htmlfs   = []byte("&#47;")
 )
 
 // HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.
@@ -56,6 +57,8 @@ func HTMLEscape(w io.Writer, b []byte) {
 			html = htmlLt
 		case '>':
 			html = htmlGt
+		case '/':
+			html = htmlfs
 		default:
 			continue
 		}
@@ -229,10 +232,6 @@ func (r *Room) sendMessage(mt int, st int, rec []string, a string, m interface{}
 	}
 	// The message
 	outputstr := fmt.Sprintf("%v", m)
-	outputstr = strings.Replace(outputstr, ";", "", -1)
-	outputstr = strings.Replace(outputstr, "`", "&#96;", -1)
-	outputstr = strings.Replace(outputstr, "'", "&lsquo;", -1)
-	outputstr = strings.Replace(outputstr, "/", "&sol;", -1)
 	outputstr = HTMLEscapeString(outputstr) 
 
 	message[helpers.ServerActionRoomMessage]["m"] = outputstr
