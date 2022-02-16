@@ -183,7 +183,7 @@ func (r *Room) sendMessage(mt int, st int, rec []string, a string, m interface{}
 		message[helpers.ServerActionRoomMessage]["a"] = a
 	}
 	// The message
-	outputstr = fmt.Sprintf("%v", m)
+	outputstr := fmt.Sprintf("%v", m)
 	outputstr = strings.Replace(outputstr, "<", "&lt;", -1)
 	outputstr = strings.Replace(outputstr, ">", "&gt;", -1)
 	outputstr = strings.Replace(outputstr, ";", "", -1)
