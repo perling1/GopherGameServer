@@ -4,6 +4,7 @@ import (
 	"errors"
 	"strings"
 	"fmt"
+	"html"
 	"github.com/gorilla/websocket"
 	"github.com/perling1/GopherGameServer/helpers"
 )
@@ -184,13 +185,12 @@ func (r *Room) sendMessage(mt int, st int, rec []string, a string, m interface{}
 	}
 	// The message
 	outputstr := fmt.Sprintf("%v", m)
-	outputstr = strings.Replace(outputstr, "<", "&lt;", -1)
-	outputstr = strings.Replace(outputstr, ">", "&gt;", -1)
 	outputstr = strings.Replace(outputstr, ";", "", -1)
-	outputstr = strings.Replace(outputstr, "`", "", -1)
+	outputstr = strings.Replace(outputstr, "`", "&#96;", -1)
 	outputstr = strings.Replace(outputstr, "´", "", -1)
-	outputstr = strings.Replace(outputstr, "{", "", -1)
-	outputstr = strings.Replace(outputstr, "}", "", -1)
+	outputstr = strings.Replace(outputstr, "'", "&lsquo;", -1)
+	outputstr = strings.Replace(outputstr, "/", "&sol;", -1)
+	HTMLEscapeString(outputstr) 
 
 	message[helpers.ServerActionRoomMessage]["m"] = outputstr
 
